@@ -28,6 +28,7 @@ if (isset($_POST['iniciar_sesion'])) {
     <title>Iniciar Sesión - K-popWave</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
