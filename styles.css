@@ -220,3 +220,34 @@ input[type="submit"]:hover {
     margin: 10px 0;
     text-align: center;
 }
+@media (max-width: 768px) {
+    /* Adjust font sizes for better readability */
+    h1 {
+      font-size: 2rem;
+    }
+  
+    h2 {
+      font-size: 1.2rem;
+    }
+  
+    /* Make the player container more responsive */
+    .player-container {
+      width: 90%;
+    }
+  
+    /* Adjust song list item styling */
+    .song-list li {
+      font-size: 0.9em;
+    }
+  
+    /* Adjust cover image size */
+    #cover {
+      width: 100px;
+      height: 100px;
+    }
+  
+    /* Adjust form container width */
+    .form-container {
+      width: 90%;
+    }
+  }
