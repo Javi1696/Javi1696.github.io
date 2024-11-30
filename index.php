@@ -4,6 +4,11 @@ $error_message = ''; // Inicializa la variable para evitar errores
 include('controlador.php');
 include('conexion_bd.php');
 
+// Verificar si el modal ya se mostró en la sesión actual
+if (!isset($_SESSION['modal_shown'])) {
+    $_SESSION['modal_shown'] = false;
+}
+
 // Procesar inicio de sesión
 if (isset($_POST['iniciar_sesion'])) {
     $correo = $_POST['correo'];
@@ -74,6 +79,7 @@ if (isset($_POST['iniciar_sesion'])) {
     </header>
 
     <!-- Modal -->
+    <?php if ($_SESSION['modal_shown'] === false): ?>
     <div id="modal" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal()">&times;</span>
@@ -86,6 +92,8 @@ if (isset($_POST['iniciar_sesion'])) {
             <input type="submit" name="continuar" value="Aceptar" onclick="closeModal()">
         </div>
     </div>
+    <?php $_SESSION['modal_shown'] = true; ?>
+    <?php endif; ?>
 
     <div class="form-container">
         <form action="" method="POST">
@@ -109,14 +117,20 @@ if (isset($_POST['iniciar_sesion'])) {
     </div>
 
     <script>
-        // Mostrar el modal al cargar la página
+        // Mostrar el modal al cargar la página si está visible
         window.onload = function () {
-            document.getElementById('modal').style.display = 'block';
+            var modal = document.getElementById('modal');
+            if (modal) {
+                modal.style.display = 'block';
+            }
         };
 
         // Cerrar el modal
         function closeModal() {
-            document.getElementById('modal').style.display = 'none';
+            var modal = document.getElementById('modal');
+            if (modal) {
+                modal.style.display = 'none';
+            }
         }
     </script>
 </body>
